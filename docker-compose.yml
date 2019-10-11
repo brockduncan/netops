@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  dev:
+    container_name: netops
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '8080:8080'
+    environment:
+      - NODE_ENV=development
