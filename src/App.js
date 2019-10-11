@@ -4,7 +4,11 @@ const App = () => {
   return (
     <div>
       <h1>NetOps</h1>
-      sweet this is working!!!
+      <nav>
+        {/* TODO: add routing */}
+        <a href="/">Purchase Requests</a><br/>
+        <a href="/">Nominator</a>
+      </nav>
     </div>
   )
 }

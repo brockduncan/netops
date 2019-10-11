@@ -19,8 +19,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open",
     "dev": "webpack-dev-server --mode development --open",
-    "start": "webpack-dev-server --mode development --open"
+    "build": "webpack --mode production --progress"
   },
   "keywords": [],
   "author": "Brock Duncan",
