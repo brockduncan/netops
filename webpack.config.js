@@ -1,11 +1,11 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, "./dist"),
-    filename: "bundle.js"
+    path: path.join(__dirname, './dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -13,27 +13,28 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(ttf|woff(2)?|eot|svg|png|jpg)$/,
-        use: ["file-loader"]
-      }
-    ]
+        use: ['file-loader'],
+      },
+    ],
   },
   devServer: {
     // add this for docker access
-    host: "0.0.0.0"
+    host: '0.0.0.0',
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
-      template: "./src/index.html"
-    })
-  ]
-};
+      template: './src/index.html',
+    }),
+  ],
+}
