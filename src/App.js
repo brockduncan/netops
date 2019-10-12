@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const App = () => {
   return (
@@ -6,11 +6,12 @@ const App = () => {
       <h1>NetOps</h1>
       <nav>
         {/* TODO: add routing */}
-        <a href="/">Purchase Requests</a><br/>
+        <a href="/">Purchases</a>
+        <br />
         <a href="/">Nominator</a>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 export default App;
