@@ -27,8 +27,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --host localhost --mode development --open",
-    "dev": "webpack-dev-server --host localhost --mode development --open",
+    "start": "webpack-dev-server --host 0.0.0.0 --mode development --open",
+    "dev": "webpack-dev-server --host 0.0.0.0 --mode development --open",
     "build": "webpack --mode production --progress"
   },
   "keywords": [],

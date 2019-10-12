@@ -27,8 +27,6 @@ module.exports = {
     ],
   },
   devServer: {
-    // add this for docker access
-    host: '0.0.0.0',
     historyApiFallback: true,
   },
   plugins: [
