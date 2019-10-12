@@ -1,17 +1,30 @@
-import React from "react";
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { Container, Header, Menu } from 'semantic-ui-react'
 
-const App = () => {
+import AppHeader from './components/AppHeader'
+import Home from './pages/Home'
+import Purchases from './pages/Purchases'
+import Nominator from './pages/Nominator'
+
+export default function App() {
   return (
-    <div>
-      <h1>NetOps</h1>
-      <nav>
-        {/* TODO: add routing */}
-        <a href="/">Purchases</a>
-        <br />
-        <a href="/">Nominator</a>
-      </nav>
-    </div>
-  );
-};
-
-export default App;
+    <Router>
+      <Container>
+        <AppHeader />
+        {/* switch through routes */}
+        <Switch>
+          <Route path="/purchases">
+            <Purchases />
+          </Route>
+          <Route path="/nominator">
+            <Nominator />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Container>
+    </Router>
+  )
+}
