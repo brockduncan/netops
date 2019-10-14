@@ -20,12 +20,7 @@ export default function Purchases() {
             width={9}
           />
           <Form.Input label="Total Cost" width={3}>
-            <Input
-              icon="dollar"
-              iconPosition="left"
-              type="number"
-              placeholder="Amount"
-            >
+            <Input iconPosition="left" type="number" placeholder="Amount">
               <Icon name="dollar" />
               <input />
             </Input>
@@ -39,12 +34,7 @@ export default function Purchases() {
             width={9}
           />
           <Form.Input label="Total Cost" width={3}>
-            <Input
-              icon="dollar"
-              iconPosition="left"
-              type="number"
-              placeholder="Amount"
-            >
+            <Input iconPosition="left" type="number" placeholder="Amount">
               <Icon name="dollar" />
               <input />
             </Input>
@@ -58,12 +48,7 @@ export default function Purchases() {
             width={9}
           />
           <Form.Input label="Total Cost" width={3}>
-            <Input
-              icon="dollar"
-              iconPosition="left"
-              type="number"
-              placeholder="Amount"
-            >
+            <Input iconPosition="left" type="number" placeholder="Amount">
               <Icon name="dollar" />
               <input />
             </Input>
@@ -77,12 +62,7 @@ export default function Purchases() {
             width={9}
           />
           <Form.Input label="Total Cost" width={3}>
-            <Input
-              icon="dollar"
-              iconPosition="left"
-              type="number"
-              placeholder="Amount"
-            >
+            <Input iconPosition="left" type="number" placeholder="Amount">
               <Icon name="dollar" />
               <input />
             </Input>
