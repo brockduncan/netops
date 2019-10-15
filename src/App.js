@@ -11,6 +11,7 @@ export default function App() {
   return (
     <Router>
       <Container>
+        {/* links are in header */}
         <AppHeader />
         {/* switch through routes */}
         <Switch>

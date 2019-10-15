@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header } from 'semantic-ui-react'
 import { Form, Input, Label, Button, Icon } from 'semantic-ui-react'
+import axios from 'axios'
 
 export default function Purchases() {
   return (
@@ -88,7 +89,13 @@ export default function Purchases() {
             </Input>
           </Form.Input>
         </Form.Group>
-        <Button primary animated="fade" type="submit" style={{ marginTop: 20 }}>
+        <Button
+          primary
+          animated="fade"
+          type="submit"
+          style={{ marginTop: 20 }}
+          onClick={handleSubmit}
+        >
           <Button.Content visible>Submit</Button.Content>
           <Button.Content hidden>
             <Icon name="paper plane" />
@@ -97,4 +104,15 @@ export default function Purchases() {
       </Form>
     </>
   )
+}
+
+function handleSubmit() {
+  axios
+    .post('http://0.0.0.0:3001/api/sendmail')
+    .then(function(res) {
+      console.log(res)
+    })
+    .catch(function(err) {
+      console.log(err)
+    })
 }

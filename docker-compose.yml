@@ -10,6 +10,18 @@ services:
       - '.:/app'
       - '/app/node_modules'
     ports:
-      - '127.0.0.1:8080:8080'
+      - '8080:8080'
+    links:
+      - mailer
     environment:
       - NODE_ENV=development
+  mailer:
+    container_name: mailer
+    build:
+      context: ./mailer
+      dockerfile: Dockerfile
+    volumes:
+      - './mailer:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
