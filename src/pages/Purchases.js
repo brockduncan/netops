@@ -90,33 +90,19 @@ export default function Purchases() {
             </Input>
           </Form.Input>
         </Form.Group>
-        {form.loading ? (
-          <Button
-            primary
-            animated="fade"
-            type="submit"
-            style={{ marginTop: 20 }}
-            loading
-          >
-            <Button.Content visible>Submit</Button.Content>
-            <Button.Content hidden>
-              <Icon name="paper plane" />
-            </Button.Content>
-          </Button>
-        ) : (
-          <Button
-            primary
-            animated="fade"
-            type="submit"
-            style={{ marginTop: 20 }}
-            onClick={handleSubmit}
-          >
-            <Button.Content visible>Submit</Button.Content>
-            <Button.Content hidden>
-              <Icon name="paper plane" />
-            </Button.Content>
-          </Button>
-        )}
+        <Button
+          primary
+          animated="fade"
+          type="submit"
+          style={{ marginTop: 20 }}
+          loading={form.loading}
+          onClick={handleSubmit}
+        >
+          <Button.Content visible>Submit</Button.Content>
+          <Button.Content hidden>
+            <Icon name="paper plane" />
+          </Button.Content>
+        </Button>
       </Form>
     </>
   )
