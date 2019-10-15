@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Header } from 'semantic-ui-react'
-import { Form, Input, Label, Button, Icon } from 'semantic-ui-react'
+import { Form, Input, Label, Button, Icon, Message } from 'semantic-ui-react'
 
 import emailjs from 'emailjs-com'
 
@@ -11,6 +11,7 @@ export default function Purchases() {
     purchase_item: '',
     cost: '',
     loading: false,
+    success: null,
   })
   function updateField(e) {
     setFormValues({
@@ -33,6 +34,7 @@ export default function Purchases() {
         setFormValues({
           ...form,
           loading: false,
+          success: true,
         })
         console.log('success!', res.status, res.text)
       })
@@ -40,6 +42,7 @@ export default function Purchases() {
         setFormValues({
           ...form,
           loading: false,
+          success: false,
         })
         console.log('failed!', err)
       })
@@ -104,6 +107,17 @@ export default function Purchases() {
           </Button.Content>
         </Button>
       </Form>
+      <Message
+        hidden={form.success === null}
+        success={form.success}
+        negative={form.success === false}
+        header={
+          form.success
+            ? 'Purchase request received!'
+            : 'Crap! Something went wrong...'
+        }
+        content={form.success ? "We'll be in touch." : 'Try it again.'}
+      />
     </>
   )
 }
