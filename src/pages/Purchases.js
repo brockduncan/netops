@@ -1,29 +1,60 @@
 import React, { useState } from 'react'
 import { Header } from 'semantic-ui-react'
 import { Form, Input, Label, Button, Icon, Message } from 'semantic-ui-react'
-
 import emailjs from 'emailjs-com'
+
+import validate from '../utils/validation'
 
 export default function Purchases() {
   const [form, setFormValues] = useState({
-    name: '',
-    email: '',
-    purchase_item: '',
-    cost: '',
+    name: {
+      value: '',
+      error: false,
+    },
+    email: {
+      value: '',
+      error: false,
+    },
+    purchase_item: {
+      value: '',
+      error: false,
+    },
+    cost: {
+      value: '',
+      error: false,
+    },
     loading: false,
     success: null,
   })
   function updateField(e) {
     setFormValues({
       ...form,
-      [e.target.name]:
-        e.target.name === 'cost'
-          ? parseFloat(e.target.value).toFixed(2)
-          : e.target.value,
+      [e.target.name]: {
+        // set values of nested state
+        value:
+          e.target.name === 'cost'
+            ? parseFloat(e.target.value).toFixed(2)
+            : e.target.value,
+        error: validate(e.target),
+      },
     })
   }
-  function handleSubmit() {
-    console.log('submit')
+  function handleSubmit(e) {
+    // const inputs = Array.from(
+    //   e.target.closest('form').getElementsByTagName('input')
+    // )
+
+    // TOOD: make this work
+    // inputs.forEach(input => {
+    //   console.log(validate(input))
+    //   setFormValues({
+    //     ...form,
+    //     [input.name]: {
+    //       value: '',
+    //       error: validate(input),
+    //     },
+    //   })
+    // })
     setFormValues({
       ...form,
       loading: true,
@@ -51,7 +82,7 @@ export default function Purchases() {
     <>
       <Header>Purchases</Header>
       <p>Fill out this form to submit a purchase request.</p>
-      <Form style={{ marginTop: 20 }}>
+      <Form style={{ marginTop: 20 }} className="validate">
         <Form.Group>
           <Form.Input
             label="Your Name"
@@ -59,6 +90,10 @@ export default function Purchases() {
             width={6}
             name="name"
             onChange={updateField}
+            required
+            error={
+              form.name.error ? { content: 'Please enter your name' } : null
+            }
           />
           <Form.Input
             label="Email Address"
@@ -66,6 +101,10 @@ export default function Purchases() {
             width={6}
             name="email"
             onChange={updateField}
+            required
+            error={
+              form.email.error ? { content: 'Please enter your email' } : null
+            }
           />
         </Form.Group>
         <Form.Group>
@@ -76,6 +115,12 @@ export default function Purchases() {
             width={9}
             name="purchase_item"
             onChange={updateField}
+            required
+            error={
+              form.purchase_item.error
+                ? { content: 'Please enter the purchase item' }
+                : null
+            }
           />
           <Form.Input label="Total Cost" width={3}>
             <Input
@@ -87,6 +132,8 @@ export default function Purchases() {
               placeholder="0.00"
               onChange={updateField}
               value={form.cost}
+              required
+              error={form.cost.error ? true : null}
             >
               <Icon name="dollar" />
               <input />
